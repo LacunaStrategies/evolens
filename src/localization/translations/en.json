@@ -1,0 +1,62 @@
+{
+  "auth": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "sign_in": "Sign in",
+    "logout": "Logout",
+    "home": "Home",
+    "email": "Email",
+    "password": "Password",
+    "login_description": "Enter your email and password to login",
+    "enter_email": "Enter your email",
+    "enter_password": "Enter your password",
+    "login_success": "Login successful"
+  },
+  "validation": {
+    "email_required": "Email is required",
+    "email_invalid": "Please enter a valid email",
+    "password_required": "Password is required",
+    "password_min_length": "Password must be at least 6 characters"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "select_language": "Select Language",
+    "english": "English",
+    "spanish": "Spanish",
+    "arabic": "Arabic"
+  },
+  "common": {
+    "loading": "Loading...",
+    "ok": "OK"
+  },
+  "errors": {
+    "session_expired": "Session Expired",
+    "session_expired_message": "Your session has expired. Please log in again.",
+    "no_internet": "No internet connection",
+    "network_error": "Network error. Please try again.",
+    "something_went_wrong": "Something went wrong"
+  },
+  "not_found": {
+    "title": "Oops!",
+    "message": "This screen doesn't exist.",
+    "go_home": "Go to home screen"
+  },
+  "tabs": {
+    "home": "Home",
+    "settings": "Settings"
+  },
+  "home": {
+    "posts_title": "Posts",
+    "posts_subtitle": "Live data from the API. Scroll to load more, pull to refresh, tap a post to load its details.",
+    "create_post": "Create a post",
+    "post_created": "Post #{{id}} created",
+    "selected_post": "Selected post",
+    "load_error": "Could not load posts.",
+    "retry": "Retry",
+    "empty": "No posts found.",
+    "demo_post_title": "Hello from the boilerplate",
+    "demo_post_body": "This post was sent with useAddPost().",
+    "loaded_count": "{{loaded}} of {{total}} loaded"
+  }
+}
