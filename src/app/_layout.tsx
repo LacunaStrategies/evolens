@@ -1,4 +1,4 @@
-import { useAppBootstrap } from "@/providers/useAppBootstrap";
+import { AppProviders, useAppBootstrap } from "@/providers";
 import { Stack } from "expo-router";
 
 // Re-export expo-router's built-in ErrorBoundary so render-phase exceptions in
@@ -13,8 +13,12 @@ function RootNavigator(): React.JSX.Element {
 
 export default function RootLayout(): React.JSX.Element | null {
   const isReady = useAppBootstrap();
-  
+
   if (!isReady) return null;
-  
-  return <RootNavigator />;
+
+  return (
+    <AppProviders>
+      <RootNavigator />
+    </AppProviders>
+  );
 }
