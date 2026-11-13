@@ -1,3 +1,4 @@
+import { AppOverlay } from '@/shared/components/AppOverlay';
 import { NavigationBar } from 'expo-navigation-bar';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -20,6 +21,7 @@ export function AppProviders({ children }: { children: React.ReactNode }): React
             {children}
           </SafeAreaProvider>
         </KeyboardProvider>
+        <AppOverlay />
       </GestureHandlerRootView>
     </>
   );
