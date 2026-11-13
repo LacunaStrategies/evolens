@@ -1,0 +1,92 @@
+import type { TOptions } from 'i18next';
+import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
+import { I18nManager, NativeModules, Platform } from 'react-native';
+import { useMMKVString } from 'react-native-mmkv';
+import RNRestart from 'react-native-restart';
+
+import { storage } from '../storage';
+import type { Language, resources } from './resources';
+import type { RecursiveKeyOf } from './types';
+
+type DefaultLocale = typeof resources.en.translation;
+
+// i18next ≥ 25.10 requires `context` to be a string; this shape type-checks
+// against both older and newer i18next typings.
+export type TranslateOptions = Omit<TOptions, 'context'> & { context?: string };
+export type TxKeyPath = RecursiveKeyOf<DefaultLocale>;
+
+export const LOCAL = 'local';
+
+// storage may not be initialized yet when i18n.ts runs at module load time.
+// Return null if called before initStorage() completes — i18n falls back to device locale.
+export const getLanguage = (): string | null => storage?.getString(LOCAL) ?? null;
+
+/**
+ * Translates text (non-reactive, use for static content).
+ * For components that need to react to language changes, use useTranslate() hook.
+ */
+export function translate(key: TxKeyPath, options: TranslateOptions = {}): string {
+  if (i18n.isInitialized) {
+    return i18n.t(key, options);
+  }
+  return key;
+}
+
+/**
+ * A hook that returns a translate function that reacts to language changes.
+ * Use this in components for UI that should update when language changes.
+ */
+export const useTranslate = () => {
+  const { t } = useTranslation();
+  return (key: TxKeyPath, options: TranslateOptions = {}): string => t(key, options);
+};
+
+export const changeLanguage = (lang: Language) => {
+  const currentLang = i18n.language;
+  const isCurrentRTL = currentLang === 'ar';
+  const isNewRTL = lang === 'ar';
+  const needsRTLChange = isCurrentRTL !== isNewRTL;
+
+  // Change i18next language (this triggers react-i18next to re-render)
+  i18n.changeLanguage(lang);
+
+  // Only reload if RTL direction needs to change
+  if (needsRTLChange) {
+    if (lang === 'ar') {
+      I18nManager.forceRTL(true);
+    } else {
+      I18nManager.forceRTL(false);
+    }
+    // RTL changes require app restart to take effect
+    if (Platform.OS === 'ios' || Platform.OS === 'android') {
+      if (__DEV__) NativeModules.DevSettings.reload();
+      else RNRestart.restart();
+    } else if (Platform.OS === 'web') {
+      window.location.reload();
+    }
+  }
+};
+
+/** Shown as selected when nothing is saved and i18n has not resolved a language. */
+export const DEFAULT_LANGUAGE: Language = 'en';
+
+export const useSelectedLanguage = () => {
+  const [language, setLang] = useMMKVString(LOCAL, storage);
+  const { i18n: i18nInstance } = useTranslation();
+
+  const setLanguage = (lang: Language) => {
+    setLang(lang);
+    changeLanguage(lang);
+  };
+
+  // Nothing is saved until the user picks a language. Fall back to the
+  // language the app is actually rendering in (device locale, or English for
+  // unsupported locales via `fallbackLng`), so the Settings picker always has a
+  // selection and it always matches what is on screen.
+  const activeLanguage = (language ??
+    i18nInstance.resolvedLanguage ??
+    DEFAULT_LANGUAGE) as Language;
+
+  return { language: activeLanguage, setLanguage };
+};
