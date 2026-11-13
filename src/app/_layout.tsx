@@ -5,10 +5,16 @@ import { Stack } from "expo-router";
 // the route tree surface with full router-aware stack frames.
 export { ErrorBoundary } from 'expo-router';
 
+function RootNavigator(): React.JSX.Element {
+  return (
+    <Stack screenOptions={{ headerShown: false }} />
+  )
+}
+
 export default function RootLayout(): React.JSX.Element | null {
   const isReady = useAppBootstrap();
   
   if (!isReady) return null;
   
-  return <Stack />;
+  return <RootNavigator />;
 }
