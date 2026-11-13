@@ -1,9 +1,9 @@
+import type { TOptions } from 'i18next';
+import i18n from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { I18nManager, NativeModules, Platform } from 'react-native';
 import { useMMKVString } from 'react-native-mmkv';
 import RNRestart from 'react-native-restart';
-import type { TOptions } from 'i18next';
-import i18n from 'i18next';
 
 import { storage } from '../storage';
 import type { Language, resources } from './resources';
@@ -26,7 +26,7 @@ export const getLanguage = (): string | null => storage?.getString(LOCAL) ?? nul
  * Translates text (non-reactive, use for static content).
  * For components that need to react to language changes, use useTranslate() hook.
  */
-export function translate(key: TxKeyPath, options?: TranslateOptions): string {
+export function translate(key: TxKeyPath, options: TranslateOptions = {}): string {
   if (i18n.isInitialized) {
     return i18n.t(key, options);
   }
@@ -39,7 +39,7 @@ export function translate(key: TxKeyPath, options?: TranslateOptions): string {
  */
 export const useTranslate = () => {
   const { t } = useTranslation();
-  return (key: TxKeyPath, options?: TranslateOptions): string => t(key, options);
+  return (key: TxKeyPath, options: TranslateOptions = {}): string => t(key, options);
 };
 
 export const changeLanguage = (lang: Language) => {
