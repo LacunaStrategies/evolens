@@ -10,6 +10,9 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
 
+import FullScreenLoader from '@/shared/components/FullScreenLoader';
+import { useScreenLoader } from '@/shared/hooks/useScreenLoader';
+
 interface ScreenWrapperProps {
   children: React.ReactNode;
   /** Layout style (padding, justifyContent, alignItems, etc.). Routed to the content container in scrollable mode, or the outer View otherwise. */
@@ -40,6 +43,8 @@ const ScreenWrapper: React.FC<ScreenWrapperProps> = ({
   backgroundImageResizeMode = 'cover',
   keyboardBottomOffset = 20,
 }) => {
+  useScreenLoader(showLoader && !isModal);
+  const modalLoader = isModal ? <FullScreenLoader inModal visible={showLoader} /> : null;
 
   const content = scrollable ? (
     <KeyboardAwareScrollView
@@ -66,6 +71,7 @@ const ScreenWrapper: React.FC<ScreenWrapperProps> = ({
         />
       ) : null}
       {content}
+      {modalLoader}
     </View>
   );
 };
