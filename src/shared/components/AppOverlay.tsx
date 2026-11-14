@@ -3,7 +3,9 @@ import { Platform, View, type ViewStyle } from 'react-native';
 import { FullWindowOverlay } from 'react-native-screens';
 import Toast from 'react-native-toast-message';
 
+import { useIsAppLoaderVisible } from '@/shared/utils/appLoader';
 import { toastConfig } from '@/shared/utils/toast';
+import FullScreenLoader from './FullScreenLoader';
 
 // On iOS, native modal screens are presented above the app's root view, so toasts
 // need FullWindowOverlay to stay visible over them. On Android they share the root
@@ -15,12 +17,14 @@ const fillParent: ViewStyle = { position: 'absolute', top: 0, right: 0, bottom: 
 
 /** App-wide layer above the navigator. */
 export function AppOverlay(): React.JSX.Element {
+  const isLoaderVisible = useIsAppLoaderVisible();
 
   return (
     <Container>
       {/* FullWindowOverlay stacks children in mount order, ignoring their order
           here, so this one view keeps the toast above a loader that mounts later. */}
       <View collapsable={false} pointerEvents="box-none" style={fillParent}>
+        <FullScreenLoader visible={isLoaderVisible} />
         <Toast config={toastConfig} position="top" />
       </View>
     </Container>
