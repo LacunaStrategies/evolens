@@ -1,4 +1,5 @@
 import { AppOverlay } from '@/shared/components/AppOverlay';
+import { useAppTheme } from '@/theme/useAppTheme';
 import { NavigationBar } from 'expo-navigation-bar';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
@@ -11,10 +12,12 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
  * `<Stack>` or React Navigation's `<NavigationContainer>`) renders inside it.
  */
 export function AppProviders({ children }: { children: React.ReactNode }): React.JSX.Element {
+  const theme = useAppTheme();
+  const barStyle = theme.colors.barStyle === 'light-content' ? 'light' : 'dark';
   return (
     <>
-      <StatusBar />
-      <NavigationBar />
+      <StatusBar style={barStyle} />
+      <NavigationBar style={barStyle} />
       <GestureHandlerRootView style={{ flex: 1 }}>
         <KeyboardProvider>
           <SafeAreaProvider>
