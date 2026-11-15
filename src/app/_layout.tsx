@@ -5,8 +5,8 @@
 // Route files under `src/app/` stay thin: screens live in `src/features/*`
 // and are re-exported here, so the folder only describes URL structure.
 
-import { Stack } from 'expo-router';
 import React from 'react';
+import { Stack } from 'expo-router';
 
 import { AppProviders, useAppBootstrap } from '@/providers';
 
@@ -20,7 +20,6 @@ export const unstable_settings = {
 };
 
 function RootNavigator(): React.JSX.Element {
-
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />

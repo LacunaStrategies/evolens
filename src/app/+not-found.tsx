@@ -1,7 +1,7 @@
-import { Link, Stack } from 'expo-router';
 import React from 'react';
 import { Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { Link, Stack } from 'expo-router';
 
 import { useTranslate } from '@/localization/utils';
 import ScreenWrapper from '@/shared/components/ScreenWrapper';

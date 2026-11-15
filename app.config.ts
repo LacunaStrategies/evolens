@@ -21,14 +21,14 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: true,
     bundleIdentifier: Env.EXPO_PUBLIC_PACKAGE_NAME,
-    icon: "./assets/expo.icon"
+    icon: './assets/expo.icon',
   },
   android: {
     adaptiveIcon: {
-      backgroundColor: "#E6F4FE",
-      foregroundImage: "./assets/images/android-icon-foreground.png",
-      backgroundImage: "./assets/images/android-icon-background.png",
-      monochromeImage: "./assets/images/android-icon-monochrome.png"
+      backgroundColor: '#E6F4FE',
+      foregroundImage: './assets/images/android-icon-foreground.png',
+      backgroundImage: './assets/images/android-icon-background.png',
+      monochromeImage: './assets/images/android-icon-monochrome.png',
     },
     // Edge-to-edge is mandatory (Android 16) and built into Expo — no config needed.
     package: Env.EXPO_PUBLIC_PACKAGE_NAME,
@@ -36,32 +36,19 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   web: {
     bundler: 'metro',
-    favicon: "./assets/images/favicon.png"
+    favicon: './assets/images/favicon.png',
   },
   plugins: [
     'expo-router',
     [
-      "expo-splash-screen",
+      'expo-splash-screen',
       {
-        "backgroundColor": "#208AEF",
-        "image": "./assets/images/splash-icon.png",
-        "imageWidth": 76
-      }
-    ],
-    'expo-localization',
-    [
-      'expo-font',
-      {
-        fonts: [
-          './src/assets/fonts/OpenSans-Regular.ttf',
-          './src/assets/fonts/OpenSans-Italic.ttf',
-          './src/assets/fonts/OpenSans-Semibold.ttf',
-          './src/assets/fonts/OpenSans-SemiboldItalic.ttf',
-          './src/assets/fonts/OpenSans-Bold.ttf',
-          './src/assets/fonts/OpenSans-BoldItalic.ttf',
-        ],
+        backgroundColor: '#208AEF',
+        image: './assets/images/splash-icon.png',
+        imageWidth: 76,
       },
     ],
+    'expo-localization',
     // Required from SDK 55 onward — registers the SecureStore native module.
     'expo-secure-store',
     'expo-status-bar',

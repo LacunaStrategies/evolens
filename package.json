@@ -8,6 +8,7 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "prebuild": "expo prebuild",
+    "prebuild:clean": "expo prebuild --clean",
     "start:development": "cp .env.development .env.local && cross-env APP_ENV=development EXPO_PUBLIC_APP_ENV=development expo start --dev-client",
     "start:staging": "cp .env.staging .env.local && cross-env APP_ENV=staging EXPO_PUBLIC_APP_ENV=staging expo start --dev-client",
     "start:production": "cp .env.production .env.local && cross-env APP_ENV=production EXPO_PUBLIC_APP_ENV=production expo start --dev-client",
@@ -65,6 +66,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@expo-google-fonts/geist": "^0.4.2",
+    "@expo-google-fonts/inter": "^0.4.2",
     "@expo/ui": "~58.0.27",
     "@hookform/resolvers": "^7.0.6",
     "@react-native-vector-icons/ionicons": "^14.0.0",
@@ -116,8 +119,8 @@
     "@expo/repack-app": "0.7.2",
     "@react-native/jest-preset": "^0.88.1",
     "@testing-library/react-native": "^13.3.3",
-    "@types/react": "~19.3.0",
     "@types/jest": "^30.0.0",
+    "@types/react": "~19.3.0",
     "@typescript-eslint/eslint-plugin": "^8.62.0",
     "@typescript-eslint/parser": "^8.62.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
