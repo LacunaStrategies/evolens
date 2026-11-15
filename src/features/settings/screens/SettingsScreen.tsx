@@ -1,7 +1,7 @@
-import { Ionicons } from '@react-native-vector-icons/ionicons';
 import React from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
 
 import type { Language } from '@/localization/resources';
 import { useSelectedLanguage, useTranslate } from '@/localization/utils';
@@ -61,7 +61,6 @@ export function SettingsScreen() {
           })}
         </View>
       </View>
-
     </ScreenWrapper>
   );
 }
@@ -105,8 +104,5 @@ const styles = StyleSheet.create((theme) => ({
   },
   languageButtonTextActive: {
     color: theme.colors.onPrimary,
-  },
-  btnStyle: {
-    marginTop: ms(40),
   },
 }));

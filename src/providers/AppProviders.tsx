@@ -1,11 +1,12 @@
-import { AppOverlay } from '@/shared/components/AppOverlay';
-import { useAppTheme } from '@/theme/useAppTheme';
-import { NavigationBar } from 'expo-navigation-bar';
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { NavigationBar } from 'expo-navigation-bar';
+import { StatusBar } from 'expo-status-bar';
+
+import { AppOverlay } from '@/shared/components/AppOverlay';
+import { useAppTheme } from '@/theme/useAppTheme';
 
 /**
  * Every app-wide provider, in one place. The navigation root (Expo Router's
@@ -20,9 +21,7 @@ export function AppProviders({ children }: { children: React.ReactNode }): React
       <NavigationBar style={barStyle} />
       <GestureHandlerRootView style={{ flex: 1 }}>
         <KeyboardProvider>
-          <SafeAreaProvider>
-            {children}
-          </SafeAreaProvider>
+          <SafeAreaProvider>{children}</SafeAreaProvider>
         </KeyboardProvider>
         <AppOverlay />
       </GestureHandlerRootView>

@@ -1,6 +1,6 @@
+import { createMMKV, type MMKV } from 'react-native-mmkv';
 import * as Crypto from 'expo-crypto';
 import * as SecureStore from 'expo-secure-store';
-import { createMMKV, type MMKV } from 'react-native-mmkv';
 
 const MMKV_KEY_ID = 'mmkv_encryption_key_v1';
 

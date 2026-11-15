@@ -1,5 +1,5 @@
-import { useIsFocused } from 'expo-router';
 import { useEffect } from 'react';
+import { useIsFocused } from 'expo-router';
 
 import { requestAppLoader } from '@/shared/utils/appLoader';
 

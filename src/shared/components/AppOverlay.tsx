@@ -5,6 +5,7 @@ import Toast from 'react-native-toast-message';
 
 import { useIsAppLoaderVisible } from '@/shared/utils/appLoader';
 import { toastConfig } from '@/shared/utils/toast';
+
 import FullScreenLoader from './FullScreenLoader';
 
 // On iOS, native modal screens are presented above the app's root view, so toasts

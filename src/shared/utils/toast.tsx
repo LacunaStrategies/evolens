@@ -12,11 +12,11 @@
  * only by `toastConfig`.
  */
 
-import { Ionicons } from '@react-native-vector-icons/ionicons';
 import React from 'react';
 import { Text, View } from 'react-native';
 import Toast, { ToastShowParams } from 'react-native-toast-message';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
+import { Ionicons } from '@react-native-vector-icons/ionicons';
 
 import { ms } from '@/shared/utils/scale';
 import { fonts } from '@/theme';
@@ -109,13 +109,13 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   title: {
     fontSize: ms(15),
-    fontFamily: fonts.openSan.semiBold,
+    fontFamily: fonts.geist.semiBold,
     lineHeight: ms(20),
     marginBottom: ms(2),
   },
   message: {
     fontSize: ms(12),
-    fontFamily: fonts.openSan.regular,
+    fontFamily: fonts.geist.regular,
     lineHeight: ms(16),
   },
 }));
