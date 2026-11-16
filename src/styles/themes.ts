@@ -15,9 +15,6 @@ const constantsColors = {
   light: '#f8f9fa',
   green: '#62EA9F',
   cancel: '#EB5757',
-  // Text color to use on top of a primary-colored fill (white reads on
-  // the cyan primary in both themes).
-  onPrimary: '#ffffff',
 };
 
 const constantsMargins = {
@@ -28,17 +25,18 @@ const constantsMargins = {
 };
 
 const constantsRadius = {
-  sm: '0.3125rem',
-  md: '0.625rem',
-  lg: '0.9375rem',
-  xl: '1.25rem',
-  full: '9999px',
+  sm: 5,
+  md: 10,
+  lg: 15,
+  xl: 20,
+  full: 9999,
 };
 
 export const lightTheme = {
   colors: {
     ...constantsColors,
     typography: '#000000',
+    foreground: '#000000',
     background: '#ffffff',
     // Elevated UI surface (cards, segmented controls, language pills, …).
     // Different from `background` so screens render a subtle layer on the
@@ -95,6 +93,8 @@ export const darkTheme = {
 
 export const lightShadCnTheme = {
   colors: {
+    ...constantsColors,
+    barStyle: 'dark-content',
     background: 'rgb(255, 255, 255)',
     foreground: 'rgb(9, 9, 11)',
     card: 'rgb(255, 255, 255)',
@@ -113,12 +113,12 @@ export const lightShadCnTheme = {
     border: 'rgb(228, 228, 231)',
     input: 'rgb(228, 228, 231)',
     ring: 'rgb(159, 159, 169)',
+    opacity50: 'rgba(1, 1, 1, 0.5)',
     chart_1: 'rgb(212, 212, 216)',
     chart_2: 'rgb(113, 113, 123)',
     chart_3: 'rgb(82, 82, 92)',
     chart_4: 'rgb(63, 63, 70)',
     chart_5: 'rgb(39, 39, 42)',
-    radius: '0.625rem',
     sidebar: 'rgb(250, 250, 250)',
     sidebar_foreground: 'rgb(9, 9, 11)',
     sidebar_primary: 'rgb(21, 93, 252)',
@@ -134,10 +134,12 @@ export const lightShadCnTheme = {
   radius: {
     ...constantsRadius,
   },
-};
+} as const;
 
 export const darkChadCnTheme = {
   colors: {
+    ...constantsColors,
+    barStyle: 'light-content',
     background: 'rgb(9, 9, 11)',
     foreground: 'rgb(250, 250, 250)',
     card: 'rgb(24, 24, 27)',
@@ -156,6 +158,7 @@ export const darkChadCnTheme = {
     border: 'rgba(255, 255, 255, 0.1)',
     input: 'rgba(255, 255, 255, 0.15)',
     ring: 'rgb(113, 113, 123)',
+    opacity50: 'rgba(201, 201, 201, 0.5)',
     chart_1: 'rgb(212, 212, 216)',
     chart_2: 'rgb(113, 113, 123)',
     chart_3: 'rgb(82, 82, 92)',
@@ -176,4 +179,4 @@ export const darkChadCnTheme = {
   radius: {
     ...constantsRadius,
   },
-};
+} as const;

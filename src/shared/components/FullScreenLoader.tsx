@@ -58,7 +58,7 @@ const styles = StyleSheet.create((theme) => ({
   screenBackdrop: { ...fill, backgroundColor: theme.colors.opacity50 },
   modalBackdrop: { ...fill, backgroundColor: 'rgba(0,0,0,0.35)' },
   screenText: { color: theme.colors.white, marginTop: ms(10) },
-  modalText: { color: theme.colors.typography, marginTop: ms(10) },
+  modalText: { color: theme.colors.foreground, marginTop: ms(10) },
 }));
 
 export default FullScreenLoader;

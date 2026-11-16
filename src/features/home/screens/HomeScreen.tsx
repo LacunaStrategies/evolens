@@ -19,15 +19,20 @@ export function HomeScreen() {
     </View>
   );
 
-  return <ScreenWrapper>{header}</ScreenWrapper>;
+  return <ScreenWrapper style={styles.container}>{header}</ScreenWrapper>;
 }
 
-const styles = StyleSheet.create((theme) => ({
+const styles = StyleSheet.create((theme, rt) => ({
+  container: {
+    paddingTop: rt.insets.top,
+    paddingLeft: rt.insets.left + ms(20),
+    paddingRight: rt.insets.right + ms(20),
+  },
   text: {
-    color: theme.colors.typography,
+    color: theme.colors.foreground,
   },
   mutedText: {
-    color: theme.colors.textGray,
+    color: theme.colors.muted_foreground,
   },
   subtitle: {
     marginTop: ms(4),

@@ -7,13 +7,11 @@
 import { StyleSheet } from 'react-native-unistyles';
 
 import breakpoints from './breakpoints';
-import { darkChadCnTheme, darkTheme, lightShadCnTheme, lightTheme } from './themes';
+import { darkChadCnTheme, lightShadCnTheme } from './themes';
 
 const appThemes = {
-  light: lightTheme,
-  dark: darkTheme,
-  darkChadCn: darkChadCnTheme,
-  lightShadCn: lightShadCnTheme,
+  light: lightShadCnTheme,
+  dark: darkChadCnTheme,
 };
 
 type AppBreakpoints = typeof breakpoints;
@@ -28,7 +26,7 @@ declare module 'react-native-unistyles' {
 
 StyleSheet.configure({
   settings: {
-    initialTheme: 'lightShadCn',
+    initialTheme: 'light',
   },
   breakpoints,
   themes: appThemes,

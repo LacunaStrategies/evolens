@@ -67,12 +67,11 @@ export function SettingsScreen() {
 
 const styles = StyleSheet.create((theme) => ({
   container: {
-    padding: ms(20),
     justifyContent: 'center',
     alignItems: 'center',
   },
   icon: {
-    marginBottom: ms(16),
+    marginBottom: ms(15),
   },
   languageSection: {
     marginTop: ms(30),
@@ -81,7 +80,7 @@ const styles = StyleSheet.create((theme) => ({
   },
   languageLabel: {
     marginBottom: ms(15),
-    color: theme.colors.typography,
+    color: theme.colors.foreground,
   },
   languageOptions: {
     flexDirection: 'row',
@@ -90,19 +89,19 @@ const styles = StyleSheet.create((theme) => ({
   languageButton: {
     paddingVertical: ms(10),
     paddingHorizontal: ms(20),
-    borderRadius: ms(8),
+    borderRadius: ms(theme.radius.md),
     borderWidth: 1,
-    borderColor: theme.colors.borderGray,
-    backgroundColor: theme.colors.surface,
+    borderColor: theme.colors.border,
+    backgroundColor: theme.colors.card,
   },
   languageButtonActive: {
     backgroundColor: theme.colors.primary,
     borderColor: theme.colors.primary,
   },
   languageButtonText: {
-    color: theme.colors.typography,
+    color: theme.colors.foreground,
   },
   languageButtonTextActive: {
-    color: theme.colors.onPrimary,
+    color: theme.colors.primary_foreground,
   },
 }));

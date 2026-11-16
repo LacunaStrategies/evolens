@@ -16,13 +16,13 @@ export default function TabsLayout(): React.JSX.Element {
         tabBarActiveTintColor: theme.colors.primary,
         // Inactive tabs use a muted gray; using `typography` here renders
         // them as full-strength black/white, indistinguishable from active.
-        tabBarInactiveTintColor: theme.colors.iconGray,
+        tabBarInactiveTintColor: theme.colors.muted_foreground,
         headerShown: false,
         tabBarIcon: ({ color }) => <TabBarIcon color={color as string} routeName={route.name} />,
         tabBarLabel: ({ color }) => <TabBarLabel color={color as string} routeName={route.name} />,
       })}
     >
-      <Tabs.Screen name="index" options={{ headerShown: true, title: t('tabs.home') }} />
+      <Tabs.Screen name="index" />
       <Tabs.Screen name="settings" options={{ headerShown: true, title: t('tabs.settings') }} />
     </Tabs>
   );

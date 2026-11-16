@@ -12,11 +12,11 @@
  * only by `toastConfig`.
  */
 
+import { Ionicons } from '@react-native-vector-icons/ionicons';
 import React from 'react';
 import { Text, View } from 'react-native';
 import Toast, { ToastShowParams } from 'react-native-toast-message';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
-import { Ionicons } from '@react-native-vector-icons/ionicons';
 
 import { ms } from '@/shared/utils/scale';
 import { fonts } from '@/theme';
@@ -70,7 +70,7 @@ const CustomToast: React.FC<CustomToastProps> = ({ type, title, message }) => {
           {title}
         </Text>
         {message ? (
-          <Text numberOfLines={2} style={[styles.message, { color: theme.colors.textGray }]}>
+          <Text numberOfLines={2} style={[styles.message, { color: theme.colors.muted }]}>
             {message}
           </Text>
         ) : null}
